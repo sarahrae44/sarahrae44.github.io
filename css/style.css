@@ -1,0 +1,50 @@
+/* starting code */
+
+body {
+  background: #336699;
+}
+
+html, body {
+  font-family: 'Open Sans', sans-serif;
+}
+.squares div {
+  width:  130px;
+  height: 130px;
+  margin-right: 1%;
+  display: inline-block;
+  background: url(../images/cardBack_130.png);
+}
+
+header {
+  width: 100%;
+  display: block;
+  height: 150px;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+  text-align: center;
+}
+
+button {
+  float: right;
+  margin-right: 48%;
+}
+
+#modal {
+  background-color: snow;
+  height: 140px;
+  width: 140px;
+  margin: 0 auto;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  align-content: center;
+  padding: 20px;
+}
+
+#nameQuestion {
+  text-align: center;
+}
+
+
+/*********************************/
+/*body {
+  background: #336699;
+}*/
