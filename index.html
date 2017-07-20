@@ -11,21 +11,25 @@
       <div>
         <h1>Memory game</h1>
         <!-- <h2>scoreboard: 0</h2> -->
-        <h3 id="name"> </h3>
         <!-- <span id="timer">timer: 30s</span>
         <span id="round">round: 1</span> -->
-        <button>Reset</button>
+        <button id="resetButton">Reset</button>
       </div>
 
     </header>
+<div id="game-board" class="board clearfix"></div>
+    <!-- <div class="squares">
 
-    <div class="squares">
-
-    </div>
+    </div> -->
   <div id="modal">
-    <span id="nameQuestion">Player one: What's your name?</span>
-    <input type="text">
+    <span>Player one: What's your name?</span>
+    <input type="text" id="playerOne">
     <button id="modalButton">Enter</button>
+  </div>
+  <div id="modalTwo">
+    <span>Player two: What's your name?</span>
+    <input type="text" id="playerTwo">
+    <button id="modalButtonTwo">Enter</button>
   </div>
 
     <script src="js/app.js"></script>
