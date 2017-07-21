@@ -38,4 +38,12 @@ https://i.ytimg.com/vi/4DtsVoYu-Pg/hqdefault.jpg
 
 http://www.alexstjohn.com/WP/wp-content/uploads/2016/08/silicon-valley-pied-piper-mousepad-950_1000.jpg
 
+https://www.pinterest.com/josealbertopere/dilbert/
+
+http://tvtropes.org/pmwiki/pmwiki.php/Characters/Dilbert
+
+https://fi.pinterest.com/shreyajha/dilbert/
+
+
+
 
