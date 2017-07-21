@@ -44,6 +44,7 @@ http://tvtropes.org/pmwiki/pmwiki.php/Characters/Dilbert
 
 https://fi.pinterest.com/shreyajha/dilbert/
 
+https://www.mobusinc.com/blog/dilbert-negotiator
 
 
 
