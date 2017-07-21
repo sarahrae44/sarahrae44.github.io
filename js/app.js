@@ -1,9 +1,5 @@
 $(() => {
 
-  // let playerOneScore = 0;
-  // let playerTwoScore = 0;
-  // // if decide to use
-  // // let time = 30;
   let round = 1;
   let playerOneName = '';
   let playerTwoName = '';
@@ -12,12 +8,6 @@ $(() => {
   let playerTwoScore = 0;
 
   let cardsInPlay = [];
-  let cardsPlayedIds = [];
-
-  let cardPlayedOne = '';
-  let cardPlayedTwo = '';
-
-  const cardBack = 'images/cardBack_130.png'
 
   let turn = 1;
 
@@ -60,7 +50,92 @@ $(() => {
     }
   ];
 
+  let roundTwoCards = [
+    {
+      cardImage: 'images/erlich.png'
+    },
+    {
+      cardImage: 'images/erlich2.png'
+    },
+    {
+      cardImage: 'images/richard.png'
+    },
+    {
+      cardImage: 'images/siliconValleyGroup.png'
+    },
+    {
+      cardImage: 'images/siliconValleyLogo.png'
+    },
+    {
+      cardImage: 'images/svGroup.png'
+    },
+    {
+      cardImage: 'images/erlich.png'
+    },
+    {
+      cardImage: 'images/erlich2.png'
+    },
+    {
+      cardImage: 'images/richard.png'
+    },
+    {
+      cardImage: 'images/siliconValleyGroup.png'
+    },
+    {
+      cardImage: 'images/siliconValleyLogo.png'
+    },
+    {
+      cardImage: 'images/svGroup.png'
+    },
+    {
+      cardImage: 'images/erlich.png'
+    },
+    {
+      cardImage: 'images/erlich2.png'
+    },
+    {
+      cardImage: 'images/richard.png'
+    },
+    {
+      cardImage: 'images/siliconValleyGroup.png'
+    },
+    {
+      cardImage: 'images/siliconValleyLogo.png'
+    },
+    {
+      cardImage: 'images/svGroup.png'
+    },
+    {
+      cardImage: 'images/erlich.png'
+    },
+    {
+      cardImage: 'images/erlich2.png'
+    },
+    {
+      cardImage: 'images/richard.png'
+    },
+    {
+      cardImage: 'images/siliconValleyGroup.png'
+    },
+    {
+      cardImage: 'images/siliconValleyLogo.png'
+    },
+    {
+      cardImage: 'images/svGroup.png'
+    }
+  ];
+
   roundOneCards.sort(() => Math.random() * 2 - 1);
+  roundTwoCards.sort(() => Math.random() * 2 - 1);
+
+const checkForRound = () => {
+  console.log(playerOneScore + playerTwoScore);
+  if(roundOneCards.length / (playerOneScore + playerTwoScore) === 2){
+      round ++;
+      setUpRound();
+  }
+  // console.log(round);
+}
 
   $('#modalButton').on('click', (e) => {
       playerOneName = $('#playerOne').val()
@@ -76,6 +151,8 @@ $(() => {
       updateScoreTwo();
       if(round === 1){
         createBoardOne();
+      }else if(round === 2){
+        createBoardTwo();
       }
     })
 
@@ -105,58 +182,77 @@ $(() => {
       $('#playerTwoScore').css('color', 'black');
     }
 
-    const flipCardBack = () => {
-        cardsPlayedIds[0] = 'url(images/cardBack_130.png)';
-        cardsPlayedIds[1] = 'url(images/cardBack_130.png)';
-    };
+    const testingTimer = () => {
+      // this is when the cards should flip back
+      // console.log('%cthe timer is working', 'color: green');
+      let selectedClass = document.getElementsByClassName('selected');
+      // console.log(selectedClass);
+      // console.log('in timer function');
 
-    const checkForMatch = () => {
-      if (cardsInPlay[0] === cardsInPlay[1]) {
-        // make modal
-        // alert('You found a match!');
-        // change opacity of cards in cardsInPlay array
-          if (turn % 2 === 0){
-          playerTwoScore++;
-          updateScoreTwo();
-        }else{
-          playerOneScore++;
-          updateScoreOne();
-        }
-      }else{
-        //make modal
-        // alert('Sorry, try again.');
-          // flip cards back over
-        console.log(cardsInPlay[0]);
-        console.log(cardsInPlay[1]);
-        cardsInPlay[0].src = 'images/cardBack_130.png';
-        cardsInPlay[1].src = 'images/cardBack_130.png';
+      // where I want to add that image is being flipped back; add image to selected class
+      selectedClass[0].setAttribute('src', 'images/cardBack_130.png');
+      selectedClass[1].setAttribute('src', 'images/cardBack_130.png');
+      // need to remove class from images
+      // console.log('selected');
+      selectedClass[1].classList.remove('selected');
+      // console.log('selected');
+      selectedClass[0].classList.remove('selected');
+      // console.log(selectedClass);
+    }
 
-      };
-    };
-
-    const flipCard = function() {
+    const flipCard = function(e) {
       whoseTurn();
       let cardId = this.getAttribute('data-id');
-      // cardsPlayedIds.push(cardId);
-      // console.log(cardsPlayedIds);
-      // console.log('User flipped ' + cards[cardId].rank + ' of ' + cards[cardId].suit + ', image: ' + cards[cardId].cardImage);
+      // this proves that e.currentTarget works
+      // e.currentTarget.style.visibility = "hidden";
+      e.currentTarget.classList.add('selected');
+      // console.log(e.currentTarget);
+      // console.log(cardId);
+      // e.currentTarget.classList('selected');
       cardsInPlay.push(roundOneCards[cardId].cardImage);
-      // cardsPlayedIds.push(cardId);
-      // console.log(cardsPlayedIds);
+
       this.setAttribute('src', roundOneCards[cardId].cardImage);
+
       if (cardsInPlay.length === 2) {
-        checkForMatch();
-          // setTimeout(2000);
-          turn+=1;
+        if (cardsInPlay[0] === cardsInPlay[1]){
+        // console.log(document.getElementsByClassName('selected'));
+        let selectedClassMatch = document.getElementsByClassName('selected');
+        // console.log(selectedClassMatch);
+        selectedClassMatch[1].classList.remove('selected');
+        // console.log(selectedClassMatch);
+        selectedClassMatch[0].classList.remove('selected');
+        // console.log(selectedClassMatch);
+          if (turn % 2 === 0){
+            playerTwoScore++;
+            updateScoreTwo();
+          }else{
+            playerOneScore++;
+            updateScoreOne();
+          }
+        }else{
+          setTimeout(testingTimer, 1200);
+          // console.log('not in timer function');
+        };
+        turn+=1;
           //clears cards in play after match check
-          console.log(cardsInPlay);
-          cardsInPlay = [];
-          // this.setAttribute('src', 'images/cardBack_130.png');
-        };
-        };
+        cardsInPlay = [];
+      };
+      checkForRound();
+    };
 
     const createBoardOne = () => {
       for (let i = 0; i < roundOneCards.length; i++) {
+        let cardElement = document.createElement('img');
+        cardElement.setAttribute('src', 'images/cardBack_130.png');
+        cardElement.setAttribute('data-id', i);
+        cardElement.addEventListener('click', flipCard);
+        let gameBoard = document.getElementById('game-board');
+        gameBoard.appendChild(cardElement);
+      };
+    };
+
+    const createBoardTwo = () => {
+      for (let i = 0; i < roundTwoCards.length; i++) {
         let cardElement = document.createElement('img');
         cardElement.setAttribute('src', 'images/cardBack_130.png');
         cardElement.setAttribute('data-id', i);
@@ -170,25 +266,22 @@ $(() => {
       // $('.squares').empty();
       // $('round').text('round: '+ round);
       if(round === 1){
-        createBoardOne();
-        // time = 30;
-      // }else if(round === 2){
-      //   createSquares(24);
-      //   time = 20;
+        createBoardTwo();
+      }else if(round === 2){
+        createBoardTwo();
+      // createSquares(24);
       // }else if(round === 3){
       //   createSquares(36);
-      //   time = 20;
       // }else{
       //   createSquares(48);
-      //   time = 10;
       }
     }
 
-      $("#resetButton").on("click", (e) => {
-        gameBoard = [];
-        setUpRound();
-        // setTimer();
-      })
+      // $("#resetButton").on("click", (e) => {
+      //   gameBoard = [];
+      //   setUpRound();
+      //   // setTimer();
+      // })
 
 
 
