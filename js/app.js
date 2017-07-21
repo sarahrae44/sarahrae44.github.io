@@ -132,6 +132,11 @@ const checkForRound = () => {
   console.log(playerOneScore + playerTwoScore);
   if(roundOneCards.length / (playerOneScore + playerTwoScore) === 2){
       round ++;
+      let clearGameBoard = document.getElementById('game-board');
+        while (clearGameBoard.firstChild) {
+        clearGameBoard.removeChild(clearGameBoard.firstChild);
+      }
+      console.log(clearGameBoard);
       setUpRound();
   }
   // console.log(round);
@@ -151,8 +156,6 @@ const checkForRound = () => {
       updateScoreTwo();
       if(round === 1){
         createBoardOne();
-      }else if(round === 2){
-        createBoardTwo();
       }
     })
 
