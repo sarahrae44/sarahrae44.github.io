@@ -12,6 +12,12 @@ $(() => {
   let playerTwoScore = 0;
 
   let cardsInPlay = [];
+  let cardsPlayedIds = [];
+
+  let cardPlayedOne = '';
+  let cardPlayedTwo = '';
+
+  const cardBack = 'images/cardBack_130.png'
 
   let turn = 1;
 
@@ -68,7 +74,9 @@ $(() => {
       // e.currentTarget is button
       $(e.currentTarget).parent().css('display', 'none');
       updateScoreTwo();
-      createBoard();
+      if(round === 1){
+        createBoardOne();
+      }
     })
 
     const updateScoreOne = () => {
@@ -79,7 +87,30 @@ $(() => {
       $('#playerTwoScore').text('Player Two ' + '(' + playerTwoName + ') ' + 'Score: ' + playerTwoScore);
     }
 
-    const checkForMatch = function() {
+    const whoseTurn = () => {
+      if(turn % 2 === 0){
+        playerTwoTurn();
+      }else{
+        playerOneTurn();
+      }
+    }
+
+    const playerTwoTurn = () => {
+      $('#playerTwoScore').css('color', 'white');
+      $('#playerOneScore').css('color', 'black');
+    }
+
+    const playerOneTurn = () => {
+      $('#playerOneScore').css('color', 'white');
+      $('#playerTwoScore').css('color', 'black');
+    }
+
+    const flipCardBack = () => {
+        cardsPlayedIds[0] = 'url(images/cardBack_130.png)';
+        cardsPlayedIds[1] = 'url(images/cardBack_130.png)';
+    };
+
+    const checkForMatch = () => {
       if (cardsInPlay[0] === cardsInPlay[1]) {
         // make modal
         // alert('You found a match!');
@@ -91,40 +122,40 @@ $(() => {
           playerOneScore++;
           updateScoreOne();
         }
-      } else {
+      }else{
         //make modal
         // alert('Sorry, try again.');
-        // flip cards back over
-        // flipCardBack();
+          // flip cards back over
+        console.log(cardsInPlay[0]);
+        console.log(cardsInPlay[1]);
+        cardsInPlay[0].src = 'images/cardBack_130.png';
+        cardsInPlay[1].src = 'images/cardBack_130.png';
+
       };
     };
 
-
-
     const flipCard = function() {
+      whoseTurn();
       let cardId = this.getAttribute('data-id');
+      // cardsPlayedIds.push(cardId);
+      // console.log(cardsPlayedIds);
       // console.log('User flipped ' + cards[cardId].rank + ' of ' + cards[cardId].suit + ', image: ' + cards[cardId].cardImage);
       cardsInPlay.push(roundOneCards[cardId].cardImage);
+      // cardsPlayedIds.push(cardId);
+      // console.log(cardsPlayedIds);
       this.setAttribute('src', roundOneCards[cardId].cardImage);
-        if (cardsInPlay.length === 2) {
-          checkForMatch();
+      if (cardsInPlay.length === 2) {
+        checkForMatch();
+          // setTimeout(2000);
           turn+=1;
-          cardsInPlay = []; //clears cards in play after match check
+          //clears cards in play after match check
+          console.log(cardsInPlay);
+          cardsInPlay = [];
+          // this.setAttribute('src', 'images/cardBack_130.png');
         };
-    };
+        };
 
-    // const flipCardBack = function() {
-    //   for (let i = 0; i < roundOneCards.length; i++) {
-    //     let cardBack = document.createElement('img');
-    //     cardBack.setAttribute('src', 'images/cardBack_130.png');
-    //     cardBack.setAttribute('data-id', i);
-    //     cardBack.addEventListener('click', flipCard);
-    //     let gameBoard = document.getElementById('game-board');
-    //     gameBoard.appendChild(cardBack);
-    //   }
-    // }
-
-    const createBoard = function() {
+    const createBoardOne = () => {
       for (let i = 0; i < roundOneCards.length; i++) {
         let cardElement = document.createElement('img');
         cardElement.setAttribute('src', 'images/cardBack_130.png');
@@ -136,24 +167,25 @@ $(() => {
     };
 
     const setUpRound = () => {
-      $('.squares').empty();
-      $('round').text('round: '+ round);
+      // $('.squares').empty();
+      // $('round').text('round: '+ round);
       if(round === 1){
-        createSquares(12);
-        time = 30;
-      }else if(round === 2){
-        createSquares(24);
-        time = 20;
-      }else if(round === 3){
-        createSquares(36);
-        time = 20;
-      }else{
-        createSquares(48);
-        time = 10;
+        createBoardOne();
+        // time = 30;
+      // }else if(round === 2){
+      //   createSquares(24);
+      //   time = 20;
+      // }else if(round === 3){
+      //   createSquares(36);
+      //   time = 20;
+      // }else{
+      //   createSquares(48);
+      //   time = 10;
       }
     }
 
       $("#resetButton").on("click", (e) => {
+        gameBoard = [];
         setUpRound();
         // setTimer();
       })
