@@ -80,3 +80,7 @@ https://pbs.twimg.com/profile_images/1273345842/dilbert_user_account_sleeping_40
 https://i.ytimg.com/vi/EfU4uQ2Ip9w/hqdefault.jpg
 
 http://www.userlogos.org/files/logos/nickbyalongshot/dilbert.png
+
+http://mde.biologia.gr/mania/wp-content/uploads/sites/15/2017/03/NERVE-CELLS.jpg
+
+http://4vector.com/i/free-vector-brain-clip-art_108802_Brain_clip_art_hight.png
