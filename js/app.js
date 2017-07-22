@@ -432,6 +432,8 @@ const checkForWinner = () => {
         let cardElement = document.createElement('img');
 // image to be applied to element
         cardElement.setAttribute('src', 'images/piedPiperCardBack.png');
+// set padding on object
+        cardElement.style.padding = '10px';
 // assigns an id to each instance
         cardElement.setAttribute('data-id', i);
 // when object is clicked, call the flipCard function
@@ -530,9 +532,11 @@ const checkForWinner = () => {
       let cardElement = document.createElement('img');
       // image to be applied to element
       cardElement.setAttribute('src', 'images/officeSpaceCardBack.png');
+      // set padding on object
+      cardElement.style.padding = '10px';
       // assigns an id to each instance
-        cardElement.setAttribute('data-id', i);
-        // when object is clicked, call the flipCard function
+      cardElement.setAttribute('data-id', i);
+      // when object is clicked, call the flipCard function
       cardElement.addEventListener('click', flipCardTwo);
       // set variable for game board
       let gameBoard = document.getElementById('game-board');
@@ -620,7 +624,7 @@ const checkForWinner = () => {
       };
     };
 
-    // set up board one
+    // set up board three
     const createBoardThree = () => {
       // count number in cards array and add loop through the following function that many times
       for (let i = 0; i < roundThreeCards.length; i++) {
@@ -628,9 +632,11 @@ const checkForWinner = () => {
       let cardElement = document.createElement('img');
       // image to be applied to element
       cardElement.setAttribute('src', 'images/dilbertCardBack.png');
+      // set padding on object
+      cardElement.style.padding = '10px'; 
       // assigns an id to each instance
-        cardElement.setAttribute('data-id', i);
-        // when object is clicked, call the flipCard function
+      cardElement.setAttribute('data-id', i);
+      // when object is clicked, call the flipCard function
       cardElement.addEventListener('click', flipCardThree);
       // set variable for game board
       let gameBoard = document.getElementById('game-board');
@@ -639,22 +645,18 @@ const checkForWinner = () => {
       };
     };
 
-// **************** end of round two-specific *************** //
+// **************** end of round three-specific *************** //
 
 // checks for round to set up
     const setUpRound = () => {
-      // $('.squares').empty();
-      // $('round').text('round: '+ round);
       if(round === 1){
         createBoardOne();
       }else if(round === 2){
         createBoardTwo();
-      // createSquares(24);
       }else if(round === 3){
         createBoardThree();
-      //   createSquares(36);
       // }else{
-      //   createSquares(48);
+      // createBoardFour();
       }
     }
 
