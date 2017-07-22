@@ -46,5 +46,32 @@ https://fi.pinterest.com/shreyajha/dilbert/
 
 https://www.mobusinc.com/blog/dilbert-negotiator
 
+http://dilbert.wikia.com/wiki/Wally
 
+https://inspiringux.com/tag/dilbert/
 
+https://i.ytimg.com/vi/byh3N7iZ34o/maxresdefault.jpg
+
+https://smallbusinesspool.files.wordpress.com/2013/09/dilbert-comparing-mission-statements-to-broccoli-soup.jpg
+
+http://www.fakesteve.net/wp-content/uploads/2010/02/Dilbert_animation.jpg
+
+https://static.seattletimes.com/wp-content/uploads/2017/01/comics-dilbert-780x500.jpg
+
+http://www.teknlife.com/wp-content/uploads/2015/12/alice.jpg
+
+http://assets.gocomics.com/uploads/features/dc/widgets/link_w_title_large_dc_dc_readdilbertblog_740x440.jpg
+
+https://ampatbrl.files.wordpress.com/2013/07/dilbert_group.jpg?w=614
+
+https://i.ytimg.com/vi/FMnKuZ3jVJ8/maxresdefault.jpg
+
+https://i.ytimg.com/vi/OEQWSjWSx4Q/hqdefault.jpg
+
+https://i.ytimg.com/vi/ZvdxsF-Tlj4/hqdefault.jpg
+
+https://pbs.twimg.com/profile_images/1273345842/dilbert_user_account_sleeping_400x400.gif
+
+https://i.ytimg.com/vi/EfU4uQ2Ip9w/hqdefault.jpg
+
+http://www.userlogos.org/files/logos/nickbyalongshot/dilbert.png
