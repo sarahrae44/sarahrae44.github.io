@@ -131,12 +131,125 @@ $(() => {
     }
   ];
 
+  // cards for round one
+    let roundThreeCards = [
+      {
+        cardImage: 'images/alice.png'
+      },
+      {
+        cardImage: 'images/catbert.png'
+      },
+      {
+        cardImage: 'images/dilbert01.png'
+      },
+      {
+        cardImage: 'images/dilbertCat.png'
+      },
+      {
+        cardImage: 'images/dilbertCoffeeCarrot.png'
+      },
+      {
+        cardImage: 'images/dilbertDemons.png'
+      },
+      {
+        cardImage: 'images/dilbertGoals.png'
+      },
+      {
+        cardImage: 'images/dilbertHeadspace.png'
+      },
+      {
+        cardImage: 'images/dilbertOne.png'
+      },
+      {
+        cardImage: 'images/dilbertRedShirt.png'
+      },
+      {
+        cardImage: 'images/dilbertSky.png'
+      },
+      {
+        cardImage: 'images/dilbertSleeping.png'
+      },
+      {
+        cardImage: 'images/dilbertTrio.png'
+      },
+      {
+        cardImage: 'images/dilbertwPointyHair.png'
+      },
+      {
+        cardImage: 'images/dogbert.png'
+      },
+      {
+        cardImage: 'images/dogbertWeasel.png'
+      },
+      {
+        cardImage: 'images/pointyHair.png'
+      },
+      {
+        cardImage: 'images/pointyHairBlueChair.png'
+      },
+      {
+        cardImage: 'images/alice.png'
+      },
+      {
+        cardImage: 'images/catbert.png'
+      },
+      {
+        cardImage: 'images/dilbert01.png'
+      },
+      {
+        cardImage: 'images/dilbertCat.png'
+      },
+      {
+        cardImage: 'images/dilbertCoffeeCarrot.png'
+      },
+      {
+        cardImage: 'images/dilbertDemons.png'
+      },
+      {
+        cardImage: 'images/dilbertGoals.png'
+      },
+      {
+        cardImage: 'images/dilbertHeadspace.png'
+      },
+      {
+        cardImage: 'images/dilbertOne.png'
+      },
+      {
+        cardImage: 'images/dilbertRedShirt.png'
+      },
+      {
+        cardImage: 'images/dilbertSky.png'
+      },
+      {
+        cardImage: 'images/dilbertSleeping.png'
+      },
+      {
+        cardImage: 'images/dilbertTrio.png'
+      },
+      {
+        cardImage: 'images/dilbertwPointyHair.png'
+      },
+      {
+        cardImage: 'images/dogbert.png'
+      },
+      {
+        cardImage: 'images/dogbertWeasel.png'
+      },
+      {
+        cardImage: 'images/pointyHair.png'
+      },
+      {
+        cardImage: 'images/pointyHairBlueChair.png'
+      }
+    ];
+
 // sort functions for all rounds
   roundOneCards.sort(() => Math.random() * 2 - 1);
   roundTwoCards.sort(() => Math.random() * 2 - 1);
+  roundThreeCards.sort(() => Math.random() * 2 - 1);
 
 // checks for which board to play
-const checkForRound = () => {
+const checkForRoundTwo = () => {
 
 // check to see if all possible points have been score for this round
   if(roundOneCards.length / (playerOneScore + playerTwoScore) === 2){
@@ -151,8 +264,23 @@ const checkForRound = () => {
     }
 }
 
-const checkForWinner = () => {
+const checkForRoundThree = () => {
+
+// check to see if all possible points have been score for this round
   if((roundOneCards.length + roundTwoCards.length) / (playerOneScore + playerTwoScore) === 2){
+      round ++;
+    // set a variable to hold cards on board and clear them since game is over
+      let clearGameBoard = document.getElementById('game-board');
+        while (clearGameBoard.firstChild) {
+        clearGameBoard.removeChild(clearGameBoard.firstChild);
+      }
+// set up next round
+      setUpRound();
+    }
+}
+
+const checkForWinner = () => {
+  if((roundOneCards.length + roundTwoCards.length + roundThreeCards.length) / (playerOneScore + playerTwoScore) === 2){
     if(playerOneScore > playerTwoScore) {
       alert('Congrats ' + playerOneName + '! You have won developer memory!')
     }else if(playerTwoScore > playerOneScore) {
@@ -278,11 +406,11 @@ const checkForWinner = () => {
           if (turn % 2 === 0){
             playerTwoScore++;
             updateScoreTwo();
-            checkForRound();
+            checkForRoundTwo();
           }else{
             playerOneScore++;
             updateScoreOne();
-            checkForRound();
+            checkForRoundTwo();
           }
         }else{
           // if cards don't match, faces of cards need to display for one second before being flipped back
@@ -374,13 +502,13 @@ const checkForWinner = () => {
           if (turn % 2 === 0){
             playerTwoScore++;
             updateScoreTwo();
-            checkForRound();
-            checkForWinner();
+            checkForRoundThree();
+            // checkForWinner();
           }else{
             playerOneScore++;
             updateScoreOne();
-            checkForRound();
-            checkForWinner();
+            checkForRoundThree();
+            // checkForWinner();
           }
         }else{
           // if cards don't match, faces of cards need to display for one second before being flipped back
@@ -415,6 +543,104 @@ const checkForWinner = () => {
 
 // **************** end of round two-specific *************** //
 
+// ************** round three-specific ************************ //
+    const testingTimerThree = () => {
+      // this is when the cards should flip back
+      // console.log('%cthe timer is working', 'color: green');
+      // create new class to hold the cards that were selected
+      let selectedClass = document.getElementsByClassName('selected');
+      // console.log(selectedClass);
+      // console.log('in timer function');
+
+      // image is being flipped back; add card back image to selected class
+      selectedClass[0].setAttribute('src', 'images/dilbertCardBack.png');
+      selectedClass[1].setAttribute('src', 'images/dilbertCardBack.png');
+      // need to remove class from images
+      // console.log('selected');
+      // remove selected class so that cards can go back in game
+      selectedClass[1].classList.remove('selected');
+      // console.log('selected');
+      // remove selected class so that cards can go back in game
+      selectedClass[0].classList.remove('selected');
+      // console.log(selectedClass);
+    }
+
+
+    const flipCardThree = function(e) {
+      // determine which player is playing
+      whoseTurn();
+      // get the id of the card flipped
+      let cardId = this.getAttribute('data-id');
+      // this proves that e.currentTarget works
+      // e.currentTarget.style.visibility = "hidden";
+      // add the flipped cards to selected class
+      e.currentTarget.classList.add('selected');
+      // console.log(e.currentTarget);
+      // console.log(cardId);
+      // e.currentTarget.classList('selected');
+      // push selected cards into array so they can be compared
+      cardsInPlay.push(roundThreeCards[cardId].cardImage);
+      // list the src so logic can run to determine if they are the same
+      this.setAttribute('src', roundThreeCards[cardId].cardImage);
+      // once cardsInPlay array holds 2 cards, compare them to determine win/loss for turn
+      if (cardsInPlay.length === 2) {
+        // if cards in array are the same
+        if (cardsInPlay[0] === cardsInPlay[1]){
+        // console.log(document.getElementsByClassName('selected'));
+        // create new variable for the matched cards to be added to, so the selected id gets removed from them
+        let selectedClassMatch = document.getElementsByClassName('selected');
+        // console.log(selectedClassMatch);
+        // remove selected class from the cards that match
+        selectedClassMatch[1].classList.remove('selected');
+        // console.log(selectedClassMatch);
+        // remove selected class from the cards that match
+        selectedClassMatch[0].classList.remove('selected');
+        // console.log(selectedClassMatch);
+        // check to see which player should receive point
+          if (turn % 2 === 0){
+            playerTwoScore++;
+            updateScoreTwo();
+            // checkForRound();
+            checkForWinner();
+          }else{
+            playerOneScore++;
+            updateScoreOne();
+            // checkForRound();
+            checkForWinner();
+          }
+        }else{
+          // if cards don't match, faces of cards need to display for one second before being flipped back
+          setTimeout(testingTimerThree, 1200);
+          // console.log('not in timer function');
+        };
+        // add one to the turn variable to keep track of which player gets to go next
+        turn+=1;
+          //clears cards in play after match check
+        cardsInPlay = [];
+      };
+    };
+
+    // set up board one
+    const createBoardThree = () => {
+      // count number in cards array and add loop through the following function that many times
+      for (let i = 0; i < roundThreeCards.length; i++) {
+        // create a new element to hold cardElement
+      let cardElement = document.createElement('img');
+      // image to be applied to element
+      cardElement.setAttribute('src', 'images/dilbertCardBack.png');
+      // assigns an id to each instance
+        cardElement.setAttribute('data-id', i);
+        // when object is clicked, call the flipCard function
+      cardElement.addEventListener('click', flipCardThree);
+      // set variable for game board
+      let gameBoard = document.getElementById('game-board');
+      // add the objects to the game board
+      gameBoard.appendChild(cardElement);
+      };
+    };
+
+// **************** end of round two-specific *************** //
+
 // checks for round to set up
     const setUpRound = () => {
       // $('.squares').empty();
@@ -424,7 +650,8 @@ const checkForWinner = () => {
       }else if(round === 2){
         createBoardTwo();
       // createSquares(24);
-      // }else if(round === 3){
+      }else if(round === 3){
+        createBoardThree();
       //   createSquares(36);
       // }else{
       //   createSquares(48);
