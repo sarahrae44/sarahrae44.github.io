@@ -151,6 +151,18 @@ const checkForRound = () => {
     }
 }
 
+const checkForWinner = () => {
+  if((roundOneCards.length + roundTwoCards.length) / (playerOneScore + playerTwoScore) === 2){
+    if(playerOneScore > playerTwoScore) {
+      alert('Congrats ' + playerOneName + '! You have won developer memory!')
+    }else if(playerTwoScore > playerOneScore) {
+      alert('Congrats ' + playerOneName + '! You have won developer memory!')
+    }else{
+      alert('Wow! The two of you are equally talented at developer memory!')
+    }
+  }
+}
+
 // player one name prompt
   $('#modalButton').on('click', (e) => {
     // pass in entered value for player one name
@@ -363,10 +375,12 @@ const checkForRound = () => {
             playerTwoScore++;
             updateScoreTwo();
             checkForRound();
+            checkForWinner();
           }else{
             playerOneScore++;
             updateScoreOne();
             checkForRound();
+            checkForWinner();
           }
         }else{
           // if cards don't match, faces of cards need to display for one second before being flipped back
