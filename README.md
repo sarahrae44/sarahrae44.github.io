@@ -1,7 +1,12 @@
 # sarahrae44.github.io
 
-Directions, etc will go here
+live site: https://sarahrae44.github.io/
 
+I used javascript, jQuery, HTML and CSS to build my game. I pulled images from the web to use for the cards and Photoshop to edit them and create my cards. I started with our fundamentals match game and added elements from other projects we worked on in labs and homework. I used Google quite a bit to fill in gaps that I either couldn't recall or hadn't used in class yet. There is a 'bug' where once the images are flipped, they can be clicked on again. I was happy to have met the MVP and didn't want to possibly break it by trying to get that to work. Given more time, I would add the option for players to pick how large of a grid they would like.
+
+
+
+FOR EDUCATIONAL PURPOSES ONLY
 images pulled from the following:
 
 https://www.pinterest.com/richarddiecidu/web-developer-humor/
