@@ -298,6 +298,7 @@ const checkForWinner = () => {
       // e.currentTarget is button
       $(e.currentTarget).parent().css('display', 'none');
       // update the scoring function
+      console.log(playerOneName);
       updateScoreOne();
     })
 
@@ -317,12 +318,20 @@ const checkForWinner = () => {
 
 // player one update score function
     const updateScoreOne = () => {
-      $('#playerOneScore').text('Player One ' + '(' + playerOneName + ') ' + 'Score: ' + playerOneScore);
+      if(playerOneName === ''){
+        $('#playerOneScore').text('Player One Score: ' + playerOneScore);
+      }else{
+        $('#playerOneScore').text(playerOneName + ' Score: ' + playerOneScore);
+      }
     }
 
 // player two update score function
     const updateScoreTwo = () => {
-      $('#playerTwoScore').text('Player Two ' + '(' + playerTwoName + ') ' + 'Score: ' + playerTwoScore);
+      if(playerTwoName === ''){
+        $('#playerTwoScore').text('Player Two Score: ' + playerTwoScore);
+      }else{
+      $('#playerTwoScore').text(playerTwoName+ ' Score: ' + playerTwoScore);
+      }
     }
 
 // determines who gets to go
@@ -337,13 +346,13 @@ const checkForWinner = () => {
 // highlights player two if their turn
     const playerTwoTurn = () => {
       $('#playerTwoScore').css('color', 'white');
-      $('#playerOneScore').css('color', 'black');
+      $('#playerOneScore').css('color', '#bc5805');
     }
 
 // highlights player one if their turn
     const playerOneTurn = () => {
       $('#playerOneScore').css('color', 'white');
-      $('#playerTwoScore').css('color', 'black');
+      $('#playerTwoScore').css('color', '#bc5805');
     }
 
 // ************ end of global for whole game ********** //
@@ -434,6 +443,8 @@ const checkForWinner = () => {
         cardElement.setAttribute('src', 'images/piedPiperCardBack.png');
 // set padding on object
         cardElement.style.padding = '10px';
+// set alignment on object
+        cardElement.style.align = 'center';
 // assigns an id to each instance
         cardElement.setAttribute('data-id', i);
 // when object is clicked, call the flipCard function
@@ -633,7 +644,7 @@ const checkForWinner = () => {
       // image to be applied to element
       cardElement.setAttribute('src', 'images/dilbertCardBack.png');
       // set padding on object
-      cardElement.style.padding = '10px'; 
+      cardElement.style.padding = '10px';
       // assigns an id to each instance
       cardElement.setAttribute('data-id', i);
       // when object is clicked, call the flipCard function
