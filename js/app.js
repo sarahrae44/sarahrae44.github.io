@@ -282,14 +282,20 @@ const checkForRoundThree = () => {
 const checkForWinner = () => {
   if((roundOneCards.length + roundTwoCards.length + roundThreeCards.length) / (playerOneScore + playerTwoScore) === 2){
     if(playerOneScore > playerTwoScore) {
-      alert('Congrats ' + playerOneName + '! You have won developer memory!')
+      if (playerOneName === ''){
+        alert('Congrats player one! You have won developer memory!');
+        }else{
+        alert('Congrats ' + playerOneName + '! You have won developer memory!');
+        }
     }else if(playerTwoScore > playerOneScore) {
-      alert('Congrats ' + playerOneName + '! You have won developer memory!')
-    }else{
-      alert('Wow! The two of you are equally talented at developer memory!')
+      if (playerTwoName === ''){
+        alert('Congrats player two! You have won developer memory!');
+        }else{
+        alert('Congrats ' + playerTwoName + '! You have won developer memory!');
+        }
+      }
     }
   }
-}
 
 // player one name prompt
   $('#modalButton').on('click', (e) => {
