@@ -293,6 +293,8 @@ const checkForWinner = () => {
         }else{
         alert('Congrats ' + playerTwoName + '! You have won developer memory!');
         }
+      }else{
+        alert('Wow! The two of you are equally talented at developer memory!')
       }
     }
   }
